@@ -1,0 +1,42 @@
+#piano {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  overflow: hidden;
+}
+
+#keys {
+  padding: 2px 0 0 2px;
+  background: #7a7a7a;
+  border-radius: 4px;
+  border: 1px #000000 solid;
+}
+
+.key {
+  float: left;
+  position: relative;
+  width: 40px;
+  height: 160px;
+  margin: 0 2px 2px 0;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+.key.black:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: -16px;
+  width: 27px;
+  height: 105px;
+  background: #000000;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+.key.black {
+  width: 0;
+  margin: 0;
+}
