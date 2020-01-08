@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: center;
   color: black;
-  overflow: hidden;
 }
 
 #keys {
@@ -11,13 +10,15 @@
   background: #7a7a7a;
   border-radius: 4px;
   border: 1px #000000 solid;
+  height: 160px;
+  overflow-x: hidden;
 }
 
 .key {
   float: left;
   position: relative;
   width: 40px;
-  height: 160px;
+  height: 100%;
   margin: 0 2px 2px 0;
   background: #fff;
   border-radius: 0 0 4px 4px;
