@@ -6,7 +6,16 @@ window.onload = function() {
       console.log(state, progress);
     },
     onsuccess: function() {
-      console.log("loaded");
+      anime({
+        targets: "#keys",
+        height: "160px",
+        duration: 1200,
+        easing: "easeInOutQuad",
+        delay: "100",
+        complete: function(anim) {
+          console.log("done");
+        }
+      });
     }
   });
 };
