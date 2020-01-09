@@ -20,26 +20,23 @@ const animatePiano = () => {
   });
 };
 const animateMain = () => {
-  document.getElementById("main").style = "";
   anime({
     targets: "#main",
-    translateX: "120px",
-    opacity: 0,
-    duration: 2000,
+    translateX: [15, 0],
+    opacity: [0, 1],
+    duration: 700,
     easing: "easeInOutQuad",
     delay: "150",
-    direction: "reverse",
     complete: animateActions
   });
 };
 const animateActions = () => {
   anime({
     targets: "li",
-    translateX: "120px",
-    opacity: 0,
-    duration: 2000,
+    translateX: [60, 0],
+    opacity: [0, 1],
+    duration: 700,
     easing: "easeInOutQuad",
-    direction: "reverse",
-    delay: "150"
+    delay: anime.stagger(500)
   });
 };
