@@ -2,7 +2,7 @@ const keys = document.getElementsByClassName("key");
 
 function inputNoteOn(key) {
   const pressedKey = keys[key - 50];
-  pressedKey.style = "background: #aaa";
+  pressedKey.style = "background: #aaa;";
   APP.keyboardFlags[key] = {
     time: Date.now()
   };
