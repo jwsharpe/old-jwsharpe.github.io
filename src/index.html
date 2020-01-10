@@ -65,6 +65,7 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/piano.css" />
     <link rel="stylesheet" href="css/content.css" />
+    <link rel="stylesheet" href="css/info.css" />
 
     <script src="js/global.js" defer></script>
     <script src="js/index.js" defer></script>
@@ -73,7 +74,30 @@
   </head>
   <body>
     <div id="piano">
-      <div id='info-description'>use the keyboard to play!</div>
+      <div style="opacity: 0;" class="info-text" id="info-description">
+        use the keyboard to play!
+      </div>
+
+      <div style="opacity: 0;" id="black-key-info">
+        <div class="info-text black-key-1">
+          <span>s</span>
+          <span>d</span>
+        </div>
+        <div class="info-text black-key-2">
+          <span>g</span>
+          <span>h</span>
+          <span>j</span>
+        </div>
+        <div class="info-text black-key-3">
+          <span>7</span>
+          <span style="margin: 0; top: 3px; position: relative;">8</span>
+        </div>
+        <div class="info-text black-key-4">
+          <span>0</span>
+          <span>-</span>
+          <span>=</span>
+        </div>
+      </div>
 
       <div id="keys">
         <div class="key"></div>
@@ -105,11 +129,24 @@
         <div class="key"></div>
       </div>
 
-              <span id='info'>?</span>
-                    <div id='white-key-info'></div>
-                    <div id='black-key-info'></div>
-
-
+      <span id="info">?</span>
+      <div style="opacity: 0;" class="info-text" id="white-key-info">
+        <span>z</span>
+        <span>x</span>
+        <span>c</span>
+        <span>v</span>
+        <span>b</span>
+        <span>n</span>
+        <span>m</span>
+        <span>y</span>
+        <span>u</span>
+        <span>i</span>
+        <span>o</span>
+        <span>p</span>
+        <span>[</span>
+        <span>]</span>
+        <span>\</span>
+      </div>
     </div>
 
     <div id="content">
@@ -120,7 +157,7 @@
       </div>
 
       <ul id="actions">
-        <li style="opacity: 0;"><a href="/" >_resume</a></listyle="opacity: 0;">
+        <li style="opacity: 0;"><a href="/">_resume</a></li>
         <li style="opacity: 0;"><a href="/">_github</a></li>
         <li style="opacity: 0;"><a href="/">_linkedin</a></li>
         <li style="opacity: 0;"><a href="/">_blog</a></li>

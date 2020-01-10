@@ -3,6 +3,7 @@ const APP = {
   volume: 128,
   velocity: 64,
   keyboardFlags: {},
+  infoDisplayed: false,
   notesByKey: {
     z: 50,
     s: 51,

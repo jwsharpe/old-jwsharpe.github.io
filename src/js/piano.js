@@ -25,13 +25,13 @@ function inputNoteOff(key) {
 }
 
 document.body.addEventListener("keydown", e => {
-  const key = APP.notesByKey[e.key];
+  const key = APP.notesByKey[e.key.toLowerCase()];
   if (!APP.keyboardFlags[key] && key) {
     inputNoteOn(key);
   }
 });
 document.body.addEventListener("keyup", e => {
-  const key = APP.notesByKey[e.key];
+  const key = APP.notesByKey[e.key.toLowerCase()];
   if (APP.keyboardFlags[key] && key) {
     inputNoteOff(key);
   }

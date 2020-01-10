@@ -1,0 +1,79 @@
+#info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -208px;
+  opacity: 0;
+  height: 36px;
+  width: 36px;
+  border: 1px solid #aaa;
+  color: #555;
+  font-weight: bold;
+  border-radius: 50%;
+  left: 336px;
+  position: relative;
+  font-family: "Raleway";
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+
+#info:hover {
+  background: #171c64;
+  border-color: #171c64;
+  color: #fff;
+}
+
+#info:active {
+  background: #0a0c2c;
+}
+
+.info-text {
+  display: flex;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 1.8rem;
+  position: relative;
+}
+
+#info-description {
+  top: -16px;
+}
+
+#white-key-info {
+  top: -36px;
+}
+
+#white-key-info span {
+  width: 40px;
+  margin: 0 2px 2px 0;
+}
+
+#black-key-info {
+  display: flex;
+  position: relative;
+  width: 634px;
+  top: -4px;
+}
+
+#black-key-info div {
+  width: 130px;
+}
+
+.black-key-1 {
+  left: 23px;
+}
+.black-key-2 {
+  left: 20px;
+}
+.black-key-3 {
+  left: 57px;
+}
+.black-key-4 {
+  left: 54px;
+}
+
+#black-key-info div span {
+  width: 40px;
+  margin: 0 2px 2px 0;
+}
