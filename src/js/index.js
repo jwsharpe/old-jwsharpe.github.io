@@ -12,17 +12,25 @@ window.onload = function() {
 const animatePiano = () => {
   anime({
     targets: "#keys",
-    height: "160px",
-    duration: 800,
+    height: [0, 160],
+    duration: 1000,
+    easing: "easeInOutQuad"
+  });
+
+  anime({
+    targets: ".key",
+    translateY: [-100, 0],
+    opacity: [0, 1],
+    duration: 700,
     easing: "easeInOutQuad",
-    delay: "150",
+    delay: anime.stagger(25, 150),
     complete: animateMain
   });
 };
 const animateMain = () => {
   anime({
     targets: "#main",
-    translateX: [15, 0],
+    translateX: [10, 0],
     opacity: [0, 1],
     duration: 700,
     easing: "easeInOutQuad",
@@ -33,10 +41,10 @@ const animateMain = () => {
 const animateActions = () => {
   anime({
     targets: "li",
-    translateX: [60, 0],
+    translateX: [10, 0],
     opacity: [0, 1],
     duration: 700,
     easing: "easeInOutQuad",
-    delay: anime.stagger(500)
+    delay: anime.stagger(125)
   });
 };
