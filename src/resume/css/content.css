@@ -1,0 +1,19 @@
+body {
+  margin: 32px;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Raleway;
+}
+
+h1 {
+  letter-spacing: 2px;
+  margin: 0px;
+  font-family: "Lora", serif;
+}
+
+h3 {
+  margin: 0px;
+}

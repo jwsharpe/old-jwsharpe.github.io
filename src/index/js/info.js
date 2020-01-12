@@ -8,12 +8,12 @@ info.addEventListener("click", () => {
     targets: [infoDescription, blackKeyInfo, whiteKeyInfo],
     opacity: APP.infoDisplayed ? 0 : 1,
     easing: "easeInOutQuad",
-    duration: 250
+    duration: 500
   });
   anime({
     targets: info,
     rotate: APP.infoDisplayed ? 0 : 180,
-    duration: 250,
+    duration: 500,
     easing: "easeInOutQuad",
     complete: () => {
       APP.infoDisplayed = !APP.infoDisplayed;
