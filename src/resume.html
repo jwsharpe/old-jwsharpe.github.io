@@ -11,54 +11,239 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/resume/css/content.css" />
+    <link rel="stylesheet" href="/resume/css/resume.css" />
   </head>
 
   <body>
-    <header id="main">
-      <div id="header-left">
-        <h1 id="name">James Wright Sharpe</h1>
-        <h3 class="description">Frontend Developer</h3>
+    <div id="resume-container">
+      <header id="main">
+        <div id="header-left">
+          <h1 id="name">James Wright Sharpe</h1>
+          <h3 class="description">Frontend Developer</h3>
+        </div>
+        <div id="header-right">
+          <h4>(570) 415-8673</h4>
+          <h4>New York City, New York</h4>
+          <h4>
+            <a href="mailto:jameswrightsharpe@gmail.com"
+              >jameswrightsharpe@gmail.com</a
+            >
+          </h4>
+        </div>
+      </header>
+      <div>
+        <h5>PROFESSIONAL SUMMARY</h5>
+        <p>
+          Frontend Developer experienced in React, React Native and Javascript
+          programming with a background in Electrical Engineering and
+          Mathematics. Possess strong skills in problem solving, academic
+          research and communication.
+        </p>
       </div>
-      <div id="header-right">
-        <h4>(570) 415-8673</h4>
-        <h4>New York City, New York</h4>
-        <h4>
-          <a href="mailto:jameswrightsharpe@gmail.com"
-            >jameswrightsharpe@gmail.com</a
-          >
-        </h4>
+      <div>
+        <h5>TECHNICAL SKILLS</h5>
+        <p>
+          Proficient in Javascript, React, React Native, Ruby on Rails and
+          Mathematics
+        </p>
       </div>
-    </header>
-    <ul>
-      <li>PROFESSIONAL SUMMARY</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-    <ul>
-      <li>TECHNICAL SKILLS</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-    <ul>
-      <li>TECHNICAL PROJECTS</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-    <ul>
-      <li>EXPERIENCE</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-    <ul>
-      <li>EDUCATION</li>
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
+      <div>
+        <h5>TECHNICAL PROJECTS</h5>
+        <div class="resume-item">
+          <h6>
+            Untitled Loop Game - <a href="/">Github</a> | <a href="/">Demo</a>
+          </h6>
+          <p>
+            Single page musical loop machine that allows you to record beats.
+          </p>
+          <ul>
+            <li>
+              Leveraged Web Audio API in order to support MIDI controls for web
+              application.
+            </li>
+            <li>
+              Created an Audio Playback data structure that minimized storage
+              space usage.
+            </li>
+            <li>
+              Integrated Material Design philosophies to ensure solid UI/UX
+              principles.
+            </li>
+            <li>
+              Developed Rails API backend in order to persist user beats, notes
+              and recordings.
+            </li>
+            <li>
+              (Web Audio API, Javascript, Material Design, Ruby on Rails, CSS,
+              HTML5)
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <h6>SmashLO - <a href="/">Github</a> | <a href="/">Demo</a></h6>
+          <p>
+            Mobile application that allows users to find Super Smash Brother
+            players in their area and track ELO and Matches.
+          </p>
+          <ul>
+            <li>
+              Created React-Native mobile application for cross platform
+              utilization.
+            </li>
+            <li>
+              Leveraged WebSocket and ActionCable controls in order to create
+              live chats and challenge requests.
+            </li>
+            <li>
+              Implemented React-Navigation in order to create native mobile
+              navigation schemes.
+            </li>
+            <li>
+              Utilized Async Storage in order to create device specific
+              persistent data so users would only have to log in once.
+            </li>
+            <li>
+              (Redux, Rails API, WebSocket, ActionCable, React-Native,
+              React-Navigation, Material Design, AsyncStorage, Fetch)
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <h6>
+            Ziehbare Stimme Leinwand (Quirky Todo) - <a href="/">Github</a> |
+            <a href="/">Demo</a>
+          </h6>
+          <p>
+            Todo application with disobedient voice controls and beautifully
+            unhelpful animations.
+          </p>
+          <ul>
+            <li>
+              Implemented Tensorflow.js model in order to create user-activated
+              voice controls.
+            </li>
+            <li>
+              Created a fully CRUD based to-do list with React.
+            </li>
+            <li>
+              Utilized the Anime.js library in order to create user controlled
+              animations.
+            </li>
+            <li>
+              (React, Redux, Tensorflow.js Anime.js)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h5>EXPERIENCE</h5>
+        <div class="resume-item">
+          <div class="title-item">
+            <h6>
+              Controls Engineer
+              <span> - New Paradigm Controls, Milton, Pennsylvania</span>
+            </h6>
+            <p>
+              06/2018 - 08/2019
+            </p>
+          </div>
+          <ul>
+            <li>
+              Developed flame lamination back-end template that is used by over
+              10 deployed lamination machines.
+            </li>
+            <li>
+              Created the operator controls and front end for a 5-layer flame
+              laminator.
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <div class="title-item">
+            <h6>
+              Community Assistant
+              <span> - Bloomsburg University, Bloomsburg, Pennsylvania</span>
+            </h6>
+            <p>
+              09/ 2016 - 06/2019
+            </p>
+          </div>
+
+          <ul>
+            <li>
+              Oversaw the academic and social development of a new group of 40
+              male students yearly.
+            </li>
+            <li>
+              Organized 4 community building social events a month, conducted
+              weekly meetings and coordinated with dean’s office.
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <div class="title-item">
+            <h6>
+              Research Assistant
+              <span> - Geisinger Research Center, Danville, Pennsylvania</span>
+            </h6>
+            <p>
+              06/2017 - 06/2017
+            </p>
+          </div>
+
+          <ul>
+            <li>
+              Analyzed, modeled and published a project which tracked the recent
+              opioid spread in Pennsylvania Counties.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h5>EDUCATION</h5>
+        <div class="resume-item">
+          <div class="title-item">
+            <h6>
+              Flatiron School
+            </h6>
+            <p>
+              08/2019 - 12/2019
+            </p>
+          </div>
+          <p>
+            Full Stack Web Development, Ruby on Rails and JavaScript program
+          </p>
+        </div>
+
+        <div class="resume-item">
+          <div class="title-item">
+            <h6>
+              Bloomsburg University of Pennsylvania
+            </h6>
+            <p>
+              09/2015 - 06/2019
+            </p>
+          </div>
+          <p>
+            Bachelor of Arts in Mathematics and Minor in Computer Science
+          </p>
+          <ul>
+            <li>
+              Sequences Generated by Powers of the kth-order Fibonacci
+              Recurrence Relation, Published American Mathematical Monthly note
+              concerning recurrence Fibonacci relationships and their closed
+              Forms. Presented to 300 honors students at the Boston National
+              Collegiate Honors Council in 2018.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

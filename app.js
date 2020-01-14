@@ -11,4 +11,6 @@ app.get("/", (req, res) => {
 app.get("/:fileName", function(req, res) {
   res.sendFile(`src/${req.params.fileName}.html`, { root: __dirname });
 });
-app.listen(5000);
+const port = 5000;
+app.listen(port);
+console.log("APP is hosted on http://localhost:" + port);
