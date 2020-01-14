@@ -3,13 +3,13 @@ var app = express();
 
 //setting middleware
 app.use("/dependencies", express.static(__dirname + "/dependencies")); //Serves resources from public folder
-app.use("/", express.static(__dirname + "/src"));
+app.use("/", express.static(__dirname + "/"));
 
 app.get("/", (req, res) => {
-  res.sendFile("src/index.html", { root: __dirname });
+  res.sendFile("index.html", { root: __dirname });
 });
 app.get("/:fileName", function(req, res) {
-  res.sendFile(`src/${req.params.fileName}.html`, { root: __dirname });
+  res.sendFile(`${req.params.fileName}.html`, { root: __dirname });
 });
 const port = 5000;
 app.listen(port);
