@@ -1,0 +1,89 @@
+<h1 id="creatingapopupsearchbarasachromeextension">Creating A Pop-up search bar as a Chrome Extension</h1>
+<h2 id="2019111">2019-11-1</h2>
+<p>TLDR;</p>
+<pre><code class="js language-js">//manifest.json
+{
+  "manifest_version": 2
+  "name": "DDG Search Bar",
+  "version": "1.0.0",
+
+  "permissions": ["tabs", "http://*/*", "https://*/*"],
+  "browser_action": {
+    "default_popup": "launcher/launcher.html"
+  },
+}
+</code></pre>
+<h2 id="chromeextensions">Chrome Extensions</h2>
+<p>One of my favorite facets of being a developer has been the control I can find and exploit throughout all of my favorite softwares. Chrome has particularly powerful customization options available to the users by allowing them to import and share js scripts to each other in a component-based solution known as chrome extensions. </p>
+<p>The way that chrome interacts with these scripts is by loading them into memory along with a .json file that gives the extension it's meta-data and permissions.</p>
+<p>So in order to create a pop-up search bar we must separate the steps and tackle them. We will first go through creating a manifest file, then head into the basic html/css we will need, finally we will create the meat of the javascript.</p>
+<h2 id="manifestjson">manifest.json</h2>
+<p>Chrome's manifest files can be found specifically <a href="https://developer.chrome.com/extensions/manifest">here</a>. The only required piece of code we need to be a valid extension is:</p>
+<pre><code class="json language-json">//manifest.json
+{
+  // Required
+  "manifest_version": 2,
+  "name": "My Extension",
+  "version": "versionString",
+}
+</code></pre>
+<p>However, in this case we will want to be able to click on the icon and make a searchbar appear. We will also need to send it permissions to be able to send html requests and open up tabs on chrome. Chrome gives us these options as permissions and actions which we must define in the manifest.</p>
+<pre><code class="js language-js">//Our more complete manifest.json
+{
+  "name": "DDG Search Bar",
+  "version": "1.0.0",
+//This tells the extension what permission we want to allow.
+  "permissions": ["tabs", "http://*/*", "https://*/*"],
+  "browser_action": {
+//This tells the extension where to look for the HTML file we want to launch. 
+    "default_popup": "launcher/launcher.html"
+  },
+  "manifest_version": 2
+}
+</code></pre>
+<p>More of these permissions and actions can be found on their <a href="https://developer.chrome.com/extensions/devguide">website</a>.</p>
+<h2 id="launcherhtml">launcher.html</h2>
+<p>The <code>launcher.html</code> file will give us what to display on the screen, combined with a little CSS we can create a search bar that will appear on our screen. </p>
+<pre><code class="html language-html">&lt;html&gt;
+  &lt;link rel="stylesheet" href="launcher.css" /&gt;
+  &lt;script src="launcher.js"&gt;&lt;/script&gt;
+  &lt;body&gt;
+    &lt;input type="text" id="launcher" placeholder="search duckduckgo" /&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="../../images/05/beforesc.png" alt="The searchbar!" /></p>
+<p>I will avoid the CSS for the sake of screen brevity.</p>
+<p>What is important here is that none of it looks out of place from regular HTML. We can now run through the javascript in order to get to the fun.</p>
+<h2 id="launcherjs">launcher.js</h2>
+<p>We want our javascript to handle three things, user experience when it opens, forming URL on a submit request, and finally sending the URL request to chrome as a duckduckgo query.</p>
+<p>Firstly we can call focus to the extension by selecting it and giving it focus. Luckily javascript makes this very easy on us.</p>
+<pre><code class="js language-js">document.addEventListener("DOMContentLoaded", () =&gt; {
+  const launcher = document.getElementById("launcher");
+  launcher.focus();
+  launcher.select();
+});
+</code></pre>
+<p>Next we want on 'enter' to form a url. In this case since I am using DuckDuckGo I can go and take their query submission url return it from a function.</p>
+<pre><code class="js language-js">function createURL() {
+  const url = document.getElementById("launcher").value;
+  const ddg = "http://www.duckduckgo.com/?q=";
+  return ddg + url;
+}
+</code></pre>
+<p>Finally we can leverage the chrome api and create a new tab going to the url. I will throw this into the event listener and will call the chrome api on a keypress of enter.</p>
+<pre><code class="js language-js">document.addEventListener('keydown', e =&gt; {
+  const key = e.keyCode;
+
+  if (key === 13) {
+    const url = createURL();
+    //This will create a new tab with the submitted url.
+    chrome.tabs.create({
+      url: url
+    });
+  }
+});
+</code></pre>
+<h2 id="gettingitinchrome">Getting it in Chrome.</h2>
+<p>Luckily, chrome makes this as easy to install as it was to write.
+If you navigate to the url <code>chrome://extensions</code>. We click on load unpacked and navigate to the project folder. After loading it in it is ready to go.</p>

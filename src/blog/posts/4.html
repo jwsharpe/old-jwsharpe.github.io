@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blog?</title>
+
+    <link rel="stylesheet" href="../blog.css" />
+    <link rel="stylesheet" href="../prism/prism.css" />
+    <script src="../prism/prism.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <a href="" id="head-avatar">
+        <img
+          src="https://avatars3.githubusercontent.com/u/23224124?s=400&amp;u=73bf2cd89e55115ada860b5d3d93f11b77de0265&amp;v=4"
+      /></a>
+      <div id="head-content">
+        <h1><a href="" id="head-name">James Wright Sharpe</a></h1>
+        <h2 id="head-description">Mathematician and Software Engineer</h2>
+      </div>
+    </div>
+    <div id="blog-body">
+      <h2 id="titlesettingupfetchrequestsforarailsapibackend">
+        Setting up Fetch Requests for a Rails API backend
+      </h2>
+      <p>TLDR;</p>
+      <pre><code class="js language-js">const mainBody = {
+  //information to send to the server
+};
+const content = {
+  method: "METHOD",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(mainBody)
+};
+fetch(URL, content)
+  .then(res =&gt; res.json())
+  .then(e =&gt; //Code here!);
+</code></pre>
+      <h2 id="mainbody">mainBody</h2>
+      <p>
+        <code>mainBody</code> sends information to the rails server that you can
+        parse in the backend using <code>params[:info]</code>
+      </p>
+      <h2 id="content">content</h2>
+      <p>
+        <code>method:</code> sends the method request you want to send the
+        server, ex. <code>GET</code>, <code>POST</code>, <code>PATCH</code>…
+      </p>
+      <p>
+        <code>headers:</code> sends metadata on the type of request you are
+        sending, and the type of request you expect to retrieve.
+      </p>
+      <p>
+        <code>'content-type': 'application/json'</code> will tell the server you
+        are sending json.
+      </p>
+      <p>
+        <code>'accept': 'application.json'</code> will tell the server you want
+        to receive json.
+      </p>
+      <p>
+        <code>body: JSON.stringify(mainBody)</code> will send the server a JSON
+        object as a string.
+      </p>
+      <h2 id="fetch">fetch</h2>
+      <p>
+        <code>fetch(URL,content)</code> will attempt to connect to the URL
+        server and then give it content.
+      </p>
+      <p>
+        <code>then(res=&gt;res.json())</code> will attempt to convert the
+        response into a json object.
+      </p>
+      <p>
+        <code>then(e =&gt; ...)</code> will give you access to a json object
+        <code>e</code>.
+      </p>
+      <h2 id="alltogethernow">All Together Now!</h2>
+      <pre><code class="js language-js">const mainBody = {
+  //information to send to the server
+};
+const content = {
+  method: "METHOD",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(mainBody)
+};
+fetch(URL, content)
+  .then(res =&gt; res.json())
+  .then(e =&gt; //Code here!);
+</code></pre>
+    </div>
+    <div id="footer">
+      <p>
+        jameswrightsharpe@gmail.com || github.com/jwsharpe
+      </p>
+    </div>
+  </body>
+</html>
