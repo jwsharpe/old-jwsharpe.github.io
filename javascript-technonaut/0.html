@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JWS.ME</title>
+
+    <link rel="stylesheet" href="../src/blog/css/blog.css" />
+    <link rel="stylesheet" href="../dependencies/prism/prism.css" />
+    <script src="../dependencies/prism/prism.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="blog-container">
+      <header>
+        <div>
+          <h1 id="title">Javascript Technonaut</h1>
+          <h2 id="name"><a href="/">James Wright Sharpe</a></h2>
+        </div>
+      </header>
+      <div id="blog-body">
+        <h1 id="implementingsimplecollisionhandlingwithruby2d">Implementing Simple Collision Handling with Ruby2D</h1>
+<p><a href="https://www.ruby2d.com">Ruby2D</a> is a fantastically simple to use 2D graphical gem with minimal setup. With just a few lines of code we can prototype application interfaces and graphical visualizations. For instance, the code below supports a magnificent box.</p>
+<pre><code class="ruby language-ruby">require "ruby2d"
+
+Square.new(
+  x: Window.width / 2 - 100,
+  y: Window.height / 2 - 100,
+  size: 200,
+  color: ["red", "green", "blue", "yellow"],
+)
+
+Window.show
+</code></pre>
+<p><img src="./images/2019-9-8/simple_box.png" alt="Image" /></p>
+<p>Ruby2D also advertises itself as a gem for creating games. It has seamless support for controller/keyboard input interactions with just a <a href="http://www.ruby2d.com/learn/input/">few lines of code</a>. However, "game engine"-like implementation is bare and many of the methods we might want to see in a game-gem are not implemented.</p>
+<p>Then, even if users can move objects around with their keyboards, Ruby2D does not supplies us with convienient methods for checking object-to-object interactions.</p>
+<p>Without these interactions, Pac-Man could not:</p>
+<ul>
+<li>Interact with ghosts, so the player cannot lose.</li>
+<li>Interact with pellets, so the player cannot win.</li>
+<li>Interact with walls, so the player can walk through them.</li>
+</ul>
+<p>Although not being able to lose the game is great, being an immortal yellow entity in a useless maze with no win condition is arguably worse.</p>
+<p><img src="./images/2019-9-8/wakawaka.png" alt="Image" /></p>
+<p>In order to motivate collision handling, we are going to deal with player interaction with a block wall. Ideally, I would like my code to emulate the following:</p>
+<pre><code class="rb language-rb">if(!player.collides_with?(wall))
+     player.move(x, y)
+end
+</code></pre>
+<p>That is, if our player is not interacting with the wall, have the player move freely. However if the player is interacting with the wall, disallow the player to move through it.</p>
+<p>Since Ruby2D does not supply us with any of these methods, besides the update funciton, we have to create all of them from scratch. For the sake of brevity, we are only going to deal with the <code>collides_with?</code> method. We want this method to return <code>true</code> when two objects are overlapping and <code>false</code> when they are not.</p>
+<p>Unfortunately, Ruby2D does not give us all the information we want natively. Although, we can calculate the space the two objects occupy and compare if they overlap.</p>
+<p>In order to do so, we are provided with the location, height and width of any object on the screen. We can leverage that to check if an object's area is inside another object's area. The only hiccup will be understanding what the <code>.x</code> and <code>.y</code> methods return.</p>
+<hr />
+<h2 id="locationhandling">Location Handling</h2>
+<p>Typically in graphics we have to deal with <code>(x,y)</code> coordinates to specify the location of objects. Canonically, we deal with these coordinates as a pair.</p>
+<p>So in our case, <code>x</code> represents the perpendicular distance from the left border of the window to the left border of the object and similarly, <code>y</code> represents the perpendicular distance from the top border of the window to the top border of the object. (Notice that <code>y</code> is measuring the distance from the top instead of the bottom like we might be used to.)</p>
+<p>Then the point given by <code>(x,y)</code> will be the top left corner of our object.</p>
+<p><img src="./images/2019-9-8/pixel_perfect.png" alt="Image" /></p>
+<p>In order to find the four corners of this object we can use quick maths involving the location, width and height.</p>
+<pre><code class="rb language-rb">#The point class takes in an x,y cordinate.
+player.corners[0]=Point.new(x        , y         )
+player.corners[1]=Point.new(x + width, y         )
+player.corners[2]=Point.new(x        , y + height)
+player.corners[3]=Point.new(x + width, y + height)
+</code></pre>
+<p><img src="./images/2019-9-8/squiggly.png" alt="Image" /></p>
+<p>This will just give us the corners of any rectangle. If we wanted the corners of more complicated objects, more complex math would be required.</p>
+<p>Now we can check if any point is within another rectangle by checking if a point is in the area created by it.</p>
+<pre><code class="rb language-rb">#Is point.x between the two x points given by the rectangle?
+(pt.x &gt; rect.x &amp;&amp; pt.x &lt; rect.x + rect.width) &amp;&amp;
+#And is the point.y between the two y points?
+(pt.y &gt; rect.y &amp;&amp; pt.y &lt; rect.y + rect.height)
+</code></pre>
+<p>Now we can check if the box is in the wall by iterating through the points.</p>
+<pre><code class="rb language-rb">player.corners.any? do |pt|
+    (pt.x &gt; rect.x &amp;&amp; pt.x &lt; rect.x + rect.width) &amp;&amp;
+    (pt.y &gt; rect.y &amp;&amp; pt.y &lt; rect.y + rect.height)
+end
+</code></pre>
+<p>The above code will give us true if the player is in the wall and false if the player is not. Finally we can wrap the above in a method and have our collision detection.</p>
+<pre><code class="rb language-rb">def collides_with?(rect)
+    self.corners.any? do |pt|
+        (pt.x &gt; rect.x &amp;&amp; pt.x &lt; rect.x + rect.width) &amp;&amp;
+        (pt.y &gt; rect.y &amp;&amp; pt.y &lt; rect.y + rect.height)
+    end
+end
+</code></pre>
+<p>So now we can prevent players going through walls.</p>
+<p><img src="./images/2019-9-8/triptych_wall.png" alt="Image" /></p>
+<p>Insetad of letting them pass..
+<img src="./images/2019-9-8/triptych.png" alt="Image" /></p>
+<hr />
+<h2 id="wheretogo">Where to Go</h2>
+<p>Understandably, this is a very basic approach to collision detection. However, it is a great first step into programming game-engine features.</p>
+<p>It was also a fantastic way to play around with Ruby2D and see the limitations and stengths.</p>
+<p>If you want to learn more about Ruby2D I highly recommend visiting their <a href="https://www.ruby2d.com">website</a>.</p>
+<p>If you want to learn more about Ruby game engines and game development, check out bigger ruby projects that are more focused on gaming such as <a href="https://www.libgosu.org/">Gosu</a>.</p>
+<p>And if you have any questions for me, feel free to shoot me an email below.</p>
+      </div>
+      <footer>
+        <a href="mailto:jameswrightsharpe@gmail.com">
+          jameswrightsharpe@gmail.com
+        </a>
+        <a href="/">
+          jameswrightsharpe.me
+        </a>
+
+        <a href="https://github.com/jwsharpe">
+          github.com/jwsharpe
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

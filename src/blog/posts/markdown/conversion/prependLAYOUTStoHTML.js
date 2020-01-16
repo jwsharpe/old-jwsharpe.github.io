@@ -1,8 +1,9 @@
 const fs = require("fs");
 
-const LAYOUT_FILE = "../layouts/post.html";
-const POST_FILE = "../posts/markdown/05.html";
-const FILE_TO_WRITE = "../posts/5.html";
+const POST = "0.html";
+const POST_FILE = "./src/blog/posts/markdown/0.html";
+const FILE_TO_WRITE = "./javascript-technonaut/" + POST;
+const LAYOUT_FILE = "./src/blog/layouts/post.html";
 
 return fs.readFile(LAYOUT_FILE, function(err, buf) {
   const html = buf.toString();

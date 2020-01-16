@@ -2,7 +2,7 @@ var showdown = require("showdown"),
   fs = require("fs"),
   converter = new showdown.Converter();
 
-const FILE_TO_CONVERT = "../posts/0.md";
+const FILE_TO_CONVERT = "./src/blog/posts/markdown/0.md";
 const FILE_TO_WRITE = FILE_TO_CONVERT.slice(0, -2) + "html";
 
 new Promise((res, rej) => {
@@ -16,7 +16,7 @@ new Promise((res, rej) => {
       if (e) {
         console.log(e);
       } else {
-        console.log("Success!");
+        console.log("Success! Created: ", FILE_TO_WRITE);
       }
     });
   })
