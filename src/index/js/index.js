@@ -5,7 +5,7 @@ window.onload = function() {
     onprogress: function(state, progress) {
       console.log(state, progress);
     },
-    onsuccess: animatePiano
+    onsuccess: startIntro
   });
 };
 
@@ -63,4 +63,8 @@ const animateActions = () => {
     easing: "easeInOutQuad",
     delay: anime.stagger(125)
   });
+};
+
+const startIntro = () => {
+  animatePiano();
 };
