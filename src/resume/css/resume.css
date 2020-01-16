@@ -3,6 +3,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: 32px;
+  margin-top: 128px;
+  margin-bottom: 128px;
   background: #fafafa;
   font-family: "Raleway", sans-serif;
 }
@@ -11,6 +13,7 @@ body {
   width: 60rem;
   background: white;
   padding: 2rem;
+  padding-bottom: 4rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
