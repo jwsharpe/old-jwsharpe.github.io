@@ -1,0 +1,45 @@
+<h1 id="settingupfetchrequestsforarailsapibackend">Setting up Fetch Requests for a Rails API backend</h1>
+<p>TLDR;</p>
+<pre><code class="js language-js">const mainBody = {
+  //information to send to the server
+};
+const content = {
+  method: "METHOD",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(mainBody)
+};
+fetch(URL, content)
+  .then(res =&gt; res.json())
+  .then(e =&gt; //Code here!);
+</code></pre>
+<h2 id="mainbody">mainBody</h2>
+<p><code>mainBody</code> sends information to the rails server that you can parse in the backend using <code>params[:info]</code></p>
+<h2 id="content">content</h2>
+<p><code>method:</code> sends the method request you want to send the server, ex. <code>GET</code>, <code>POST</code>, <code>PATCH</code>…</p>
+<p><code>headers:</code> sends metadata on the type of request you are sending, and the type of request you expect to retrieve.</p>
+<p><code>'content-type': 'application/json'</code> will tell the server you are sending json.</p>
+<p><code>'accept': 'application.json'</code> will tell the server you want to receive json.</p>
+<p><code>body: JSON.stringify(mainBody)</code> will send the server a JSON object as a string.</p>
+<h2 id="fetch">fetch</h2>
+<p><code>fetch(URL,content)</code> will attempt to connect to the URL server and then give it content.</p>
+<p><code>then(res=&gt;res.json())</code> will attempt to convert the response into a json object.</p>
+<p><code>then(e =&gt; ...)</code> will give you access to a json object <code>e</code>.</p>
+<h2 id="alltogethernow">All Together Now!</h2>
+<pre><code class="js language-js">const mainBody = {
+  //information to send to the server
+};
+const content = {
+  method: "METHOD",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(mainBody)
+};
+fetch(URL, content)
+  .then(res =&gt; res.json())
+  .then(e =&gt; //Code here!);
+</code></pre>

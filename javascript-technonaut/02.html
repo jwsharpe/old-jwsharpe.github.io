@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JWS.ME</title>
+
+    <link rel="stylesheet" href="../src/blog/css/blog.css" />
+    <link rel="stylesheet" href="../dependencies/prism/prism.css" />
+    <script src="../dependencies/prism/prism.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="blog-container">
+      <header>
+        <div>
+          <a href="/javascript-technonaut">Javascript Technonaut</a>
+          <h2 id="blog-name"><a href="/">James Wright Sharpe</a></h2>
+        </div>
+      </header>
+      <div id="blog-body">
+        <h1 id="usingcollectionselectinrubyonrails">Using Collection Select in Ruby on Rails</h1>
+<p>TLDR;</p>
+<pre><code class="rb language-rb">collection_select(:post, :author_id, Author.all, :id, :name)
+</code></pre>
+<h2 id="howto">How to</h2>
+<p>Assume we have a relationship between a single author having many posts.
+Our post model should contain the following attributes:</p>
+<pre><code>Post#id
+Post#title
+Post#message
+Post#author_id
+</code></pre>
+<p>Likewise, our Author Model should contain the following attributes:</p>
+<pre><code>Author#id
+Author#name
+</code></pre>
+<p>We then want to build a drop down menu that will give us the the id of the author that the user selects, and in order to follow convention we also want to save that to the parameters.
+If we want to access our <code>Author#id</code> in <code>params[:post[:author_id]]</code> we write,</p>
+<pre><code class="rb language-rb">collection_select(:post,:author_id,...)
+</code></pre>
+<p>We then want to pass to all of the items that collection_select will display.</p>
+<pre><code class="rb language-rb">collection_select(:post,:author_id,Author.all,...)
+</code></pre>
+<p>The next argument it takes is the value we want to return. Since we are expecting <code>params(:post[:author_id])</code> we want to pass in <code>Author#id</code>. So we pass in the method of an instance of <code>Author</code>.</p>
+<pre><code class="rb language-rb">collection_select(:post,:author_id,Author.all,:id,...)
+</code></pre>
+<p>Finally we pass in the value that we want to end user to see it as in the drop down box. In our case we will use <code>Author#name</code>.</p>
+<pre><code class="rb language-rb">collection_select(:post,:author_id,Author.all,:id,:name)
+</code></pre>
+<p>This method can be visualized easier in the follow graph.
+<img src="../images/03/graphic.png" alt="image" /></p>
+<p>And if you have any questions for me, feel free to shoot me an email below.</p>
+<p>Thanks for reading!</p>
+      </div>
+      <footer>
+        <a href="mailto:jameswrightsharpe@gmail.com">
+          jameswrightsharpe@gmail.com
+        </a>
+        <a href="/">
+          jameswrightsharpe.me
+        </a>
+
+        <a href="https://github.com/jwsharpe">
+          github.com/jwsharpe
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>

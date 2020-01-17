@@ -1,7 +1,7 @@
 const fs = require("fs");
 
-const POST = "0.html";
-const POST_FILE = "./src/blog/posts/markdown/0.html";
+const POST = "05.html";
+const POST_FILE = "./src/blog/posts/markdown/" + POST;
 const FILE_TO_WRITE = "./javascript-technonaut/" + POST;
 const LAYOUT_FILE = "./src/blog/layouts/post.html";
 

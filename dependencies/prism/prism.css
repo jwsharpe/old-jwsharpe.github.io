@@ -10,14 +10,14 @@ pre[class*="language-"] {
   color: white;
   background: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: left;
   text-shadow: 0 -0.1em 0.2em black;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
+  line-height: 1.2;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -36,12 +36,9 @@ pre[class*="language-"],
 
 /* Code blocks */
 pre[class*="language-"] {
-  border-radius: 0.5em;
-  border: 0.3em solid hsl(0, 0%, 33%); /* #282A2B */
-  box-shadow: 1px 1px 0.5em black inset;
-  margin: 0.5em 0;
+  border: 1px solid #bdbdbd;
   overflow: auto;
-  padding: 1em;
+  padding: 8px;
 }
 
 pre[class*="language-"]::-moz-selection {
