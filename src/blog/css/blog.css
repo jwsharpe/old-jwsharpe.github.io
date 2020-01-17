@@ -78,9 +78,19 @@ a:active {
   padding-inline-start: 0px;
 }
 .blog-posts li {
-  margin-top: 8px;
+  margin-top: 1.25rem;
   display: flex;
+  font-weight: bold;
+  color: #0013c0;
   flex-direction: column;
+}
+
+.blog-posts a:visited {
+  color: inherit;
+}
+
+.blog-posts li:first-child {
+  margin-top: 0px;
 }
 
 small {
