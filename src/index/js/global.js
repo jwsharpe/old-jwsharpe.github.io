@@ -1,7 +1,7 @@
 const APP = {
   cid: 0,
-  volume: 128,
-  velocity: 64,
+  volume: 127,
+  velocity: 127,
   keyboardFlags: {},
   infoDisplayed: false,
   notesByKey: {
