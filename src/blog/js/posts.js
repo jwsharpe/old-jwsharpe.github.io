@@ -1,5 +1,10 @@
 const posts = [
   {
+    title: "Using React State Hooks to make a 'Like' Button<",
+    description: "An introduction to react hooks!",
+    date: "January 20, 2020"
+  },
+  {
     title: "Setting up Fetch Requests for a Rails API backend",
     description: "Quick fetch reference for external APIs in Javascript",
     date: "November 2019"
@@ -23,7 +28,7 @@ const renderPost = (post, index) => {
   const li = document.createElement("li");
 
   const a = document.createElement("a");
-  a.href = "/javascript-technonaut/0" + index;
+  a.href = "/javascript-technonaut/0" + (posts.length - 1) - index;
   a.innerText = title;
   li.append(a);
 

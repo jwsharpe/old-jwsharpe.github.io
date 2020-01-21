@@ -1,0 +1,72 @@
+<h2 id="usingreactstatehookstomakealikebutton">Using React State Hooks to make a 'Like' Button</h2>
+<p>The React team released hook in React 16.8 in order to let you use state and other features without having to write class methods. Although <a href="https://reactjs.org/docs/hooks-intro.html#no-breaking-changes">hooks are in no way trying to replace classes</a>. They arguably create cleaner code that is easier to follow and debug.</p>
+<h2 id="intothecounter">Into the counter</h2>
+<p>I created a small react test app using create-react-app. In it I created an example counter on a card.
+<img src="./images/using-react-state-hooks/cutepup.png" alt="cute pup" /></p>
+<p>Currently, the like button does nothing. If we are familiar with class components and statefulness the pre16.8 safe way of adding this like button deals with creating a state object in a class component and calling setState with a callback to get previous values. </p>
+<pre><code class="jsx language-jsx">import React from 'react';
+
+class Card extends React.Component {
+    state: {
+        likes: 0
+    }
+
+    handleClick = () =&gt; {
+        setState( (prevState) =&gt; {
+            return {likes: prevState.likes + 1}
+        })
+    }
+
+    render(){
+        return (
+            //...other renderables
+            &lt;p className='likes'&gt;{this.state.likes}&lt;/p&gt;
+            &lt;button onClick={this.handleClick}&gt;like&lt;/button&gt;
+            //...other renderables
+        )
+    }
+}
+</code></pre>
+<p>Although this way works it is verbose and a bit difficult to follow for newcomers. The hook solution removes our need for class components which allows us to avoid the <code>this</code> keyword. It also allows us to also avoid the <code>setState</code> callback function syntax.</p>
+<p>In order to get to hook best practice we will first create a functional component. </p>
+<pre><code class="jsx language-jsx">const Card = () =&gt; {
+    return null;
+}
+</code></pre>
+<p>We will replace the state object with the new useState() syntax. We first have to import the function from react.</p>
+<pre><code class="jsx language-jsx">import React, { useState } from 'react'
+const Card = () =&gt; {
+    const [likes, setLikes] = useState(0);
+    return null;
+}
+</code></pre>
+<p>If the <code>useState</code> syntax seems foreign, it is because it uses javascript's <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">array destructuring</a>. As a quick aside, we can use array destructuring to assign variables to values in an array.</p>
+<pre><code class="js language-js">const [a, b] = [1, 2] // a = 1 and b = 2
+</code></pre>
+<p>The function <code>useState()</code> returns an array with two values, the first value is the default value passed into the function, in this case 0. The second value is a function that allows us to change this value. Just like with class state we want to avoid modifying state value directly. </p>
+<p>So in order to go from 0 likes to 1 we can simply use the line</p>
+<p><code>setLikes(1);</code></p>
+<p>And since we assigned the value <code>likes</code> when the Virtual DOM updates, the value of likes will also change.</p>
+<p>Hooks also gives us a safe way to reference previous values of <code>likes</code> without worrying about racing conditions. So we can avoid callback functions on setState entirely. </p>
+<p>Coming back to our component example we can now get rid of the state object and simply create all of other functionality like normal.</p>
+<p>```jsx 
+import React, { useState } from 'react'
+const Card = () =&gt; {
+    const [likes, setLikes] = useState(0);</p>
+<pre><code>const handleClick = () =&gt; { setLikes(likes + 1) }
+
+return (
+    //...other renderables 
+    &lt;p className='likes'&gt;{this.state.likes}&lt;/p&gt;
+    &lt;button onClick={this.handleClick}&gt;like&lt;/button&gt;
+    //...other renderables 
+)
+</code></pre>
+<p>}
+```</p>
+<p>And now our good boi deserves all the likes he wants.</p>
+<h2 id="wheretogo">Where to go.</h2>
+<p>There is alot more to hooks then just using state. We can also do similar things to <a href="https://reactjs.org/docs/hooks-effect.html">component mounting and updating</a>. </p>
+<p><a href="https://reactjs.org/docs/hooks-custom.html">Custom hooks</a> also make it easier to develop and share useful functions. Such as easy to implement <a href="https://usehooks.com/useDebounce/">debouncing functions</a>.</p>
+<p>I would also highly encourage you to visit the <a href="https://github.com/beautifulinteractions/beautiful-react-hooks">beautiful react hooks repo</a> for more inspiration and cool usage. </p>
+<p>Thanks for reading and if you have any questions for me, feel free to shoot me an email below.</p>

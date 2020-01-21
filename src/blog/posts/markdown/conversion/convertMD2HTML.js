@@ -2,7 +2,7 @@ var showdown = require("showdown"),
   fs = require("fs"),
   converter = new showdown.Converter();
 
-const FILE_TO_CONVERT = "./src/blog/posts/markdown/04.md";
+const FILE_TO_CONVERT = "./src/blog/posts/markdown/02.md";
 const FILE_TO_WRITE = FILE_TO_CONVERT.slice(0, -2) + "html";
 
 new Promise((res, rej) => {
