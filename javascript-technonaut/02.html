@@ -60,6 +60,7 @@ class Card extends React.Component {
 </code></pre>
 <p>We will replace the state object with the new useState() syntax. We first have to import the function from react.</p>
 <pre><code class="jsx language-jsx">import React, { useState } from 'react'
+
 const Card = () =&gt; {
     const [likes, setLikes] = useState(0);
     return null;
@@ -74,21 +75,21 @@ const Card = () =&gt; {
 <p>And since we assigned the value <code>likes</code> when the Virtual DOM updates, the value of likes will also change.</p>
 <p>Hooks also gives us a safe way to reference previous values of <code>likes</code> without worrying about racing conditions. So we can avoid callback functions on setState entirely. </p>
 <p>Coming back to our component example we can now get rid of the state object and simply create all of other functionality like normal.</p>
-<p>```jsx 
-import React, { useState } from 'react'
-const Card = () =&gt; {
-    const [likes, setLikes] = useState(0);</p>
-<pre><code>const handleClick = () =&gt; { setLikes(likes + 1) }
+<pre><code class="jsx language-jsx">import React, { useState } from 'react'
 
-return (
-    //...other renderables 
-    &lt;p className='likes'&gt;{this.state.likes}&lt;/p&gt;
-    &lt;button onClick={this.handleClick}&gt;like&lt;/button&gt;
-    //...other renderables 
-)
+const Card = () =&gt; {
+    const [likes, setLikes] = useState(0);
+
+    const handleClick = () =&gt; { setLikes(likes + 1) }
+
+    return (
+        //...other renderables 
+        &lt;p className='likes'&gt;{this.state.likes}&lt;/p&gt;
+        &lt;button onClick={this.handleClick}&gt;like&lt;/button&gt;
+        //...other renderables 
+    )
+}
 </code></pre>
-<p>}
-```</p>
 <p>And now our good boi deserves all the likes he wants.</p>
 <h2 id="wheretogo">Where to go.</h2>
 <p>There is alot more to hooks then just using state. We can also do similar things to <a href="https://reactjs.org/docs/hooks-effect.html">component mounting and updating</a>. </p>

@@ -1,6 +1,6 @@
 const posts = [
   {
-    title: "Using React State Hooks to make a 'Like' Button<",
+    title: "Using React State Hooks to make a 'Like' Button",
     description: "An introduction to react hooks!",
     date: "January 20, 2020"
   },
@@ -28,7 +28,7 @@ const renderPost = (post, index) => {
   const li = document.createElement("li");
 
   const a = document.createElement("a");
-  a.href = "/javascript-technonaut/0" + (posts.length - 1) - index;
+  a.href = "/javascript-technonaut/0" + (posts.length - index - 1);
   a.innerText = title;
   li.append(a);
 
