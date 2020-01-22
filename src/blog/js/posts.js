@@ -17,7 +17,6 @@ const posts = [
 ];
 
 const ul = document.getElementsByClassName("blog-posts")[0];
-console.log(ul);
 
 const renderPosts = post => {
   posts.forEach(renderPost);
