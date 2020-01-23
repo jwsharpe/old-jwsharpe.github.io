@@ -1,3 +1,6 @@
 [submodule "MIDI.js"]
 	path = MIDI.js
 	url = https://github.com/mudcube/MIDI.js.git
+[submodule "untitled-loop-game"]
+	path = untitled-loop-game
+	url = https://github.com/jwsharpe/untitled-loop-game-frontend
