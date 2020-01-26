@@ -31,6 +31,15 @@ header {
 header a {
   color: black;
 }
+header a:visited {
+  color: black;
+}
+a {
+  color: blue;
+}
+a:visited {
+  color: blue;
+}
 footer {
   display: flex;
   flex-direction: column;
@@ -62,11 +71,7 @@ a {
 }
 
 a:hover {
-  color: #ffc400;
-}
-
-a:active {
-  color: #d1a000;
+  text-decoration: underline;
 }
 
 .blog-posts {
@@ -81,12 +86,7 @@ a:active {
   margin-top: 1.25rem;
   display: flex;
   font-weight: bold;
-  color: #0013c0;
   flex-direction: column;
-}
-
-.blog-posts a:visited {
-  color: inherit;
 }
 
 .blog-posts li:first-child {
