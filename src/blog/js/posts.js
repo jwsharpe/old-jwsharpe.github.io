@@ -2,12 +2,12 @@ const posts = [
   {
     title: "Using React State Hooks to make a 'Like' Button",
     description: "An introduction to react hooks!",
-    date: "January 20, 2020"
+    date: "January 2020"
   },
   {
     title: "Setting up Fetch Requests for a Rails API backend",
     description: "Quick fetch reference for external APIs in Javascript",
-    date: "November 2019"
+    date: "February 2020"
   },
   {
     title: "Implementing Simple Collision Handling with Ruby2D",
