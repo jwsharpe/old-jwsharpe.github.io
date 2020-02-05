@@ -6,7 +6,7 @@ const whiteKeyInfo = document.querySelector("#white-key-info");
 info.addEventListener("click", () => {
   anime({
     targets: [infoDescription, blackKeyInfo, whiteKeyInfo],
-    opacity: APP.infoDisplayed ? 0 : 1,
+    opacity: APP.infoDisplayed ? 1 : 0,
     easing: "easeInOutQuad",
     duration: 500
   });

@@ -46,7 +46,7 @@ const animatePiano = () => {
 };
 const animateMain = () => {
   anime({
-    targets: "#main",
+    targets: ["#main", ".info-text", "#black-key-info"],
     translateX: [10, 0],
     opacity: [0, 1],
     duration: 500,
