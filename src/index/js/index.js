@@ -46,22 +46,11 @@ const animatePiano = () => {
 };
 const animateMain = () => {
   anime({
-    targets: ["#main", ".info-text", "#black-key-info"],
+    targets: ["#main", "li", ".info-text", "#black-key-info"],
     translateX: [10, 0],
     opacity: [0, 1],
     duration: 500,
-    easing: "easeInOutQuad",
-    complete: animateActions
-  });
-};
-const animateActions = () => {
-  anime({
-    targets: "li",
-    translateX: [10, 0],
-    opacity: [0, 1],
-    duration: 500,
-    easing: "easeInOutQuad",
-    delay: anime.stagger(125)
+    easing: "easeInOutQuad"
   });
 };
 
