@@ -1,5 +1,10 @@
 const posts = [
   {
+    title: "Javascript: var, let and the JS interpreter",
+    description: "Why do we have two statements for the same thing?",
+    date: "February 2020"
+  },
+  {
     title: "Using React State Hooks to make a 'Like' Button",
     description: "An introduction to react hooks!",
     date: "January 2020"
@@ -7,7 +12,7 @@ const posts = [
   {
     title: "Setting up Fetch Requests for a Rails API backend",
     description: "Quick fetch reference for external APIs in Javascript",
-    date: "February 2020"
+    date: "December 2019"
   },
   {
     title: "Implementing Simple Collision Handling with Ruby2D",
