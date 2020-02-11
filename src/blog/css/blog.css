@@ -9,14 +9,15 @@ body {
   font-family: "Nanum Myeongjo", serif;
 }
 
-#blog-container {
-  width: 60rem;
-  background: white;
-  padding: 2rem;
-  padding-bottom: 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+@media (min-width: 800px) {
+  #blog-container {
+    width: 60rem;
+    background: white;
+    padding: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
 }
-
 #blog-body {
   font-family: "Nanum Myeongjo", serif;
   font-size: 1.2rem;

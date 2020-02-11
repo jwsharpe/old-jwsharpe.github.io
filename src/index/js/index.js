@@ -1,12 +1,21 @@
 window.onload = function() {
-  MIDI.loadPlugin({
-    soundfontUrl: "../dependencies/fatboy/",
-    instrument: "acoustic_grand_piano",
-    onprogress: function(state, progress) {
-      console.log(state, progress);
-    },
-    onsuccess: startIntro
-  });
+  const width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+
+  if (width > 800) {
+    MIDI.loadPlugin({
+      soundfontUrl: "../dependencies/fatboy/",
+      instrument: "acoustic_grand_piano",
+      onprogress: function(state, progress) {
+        console.log(state, progress);
+      },
+      onsuccess: startIntro
+    });
+  } else {
+    animateMain();
+  }
 };
 
 const animatePiano = () => {
@@ -35,7 +44,7 @@ const animatePiano = () => {
   }, keysAnimDelay);
 
   anime({
-    targets: ".key",
+    targets: [".key", ".info-text", "#black-key-info"],
     translateY: [-100, 0],
     opacity: [0, 1],
     duration: 700,
@@ -46,7 +55,7 @@ const animatePiano = () => {
 };
 const animateMain = () => {
   anime({
-    targets: ["#main", "li", ".info-text", "#black-key-info"],
+    targets: ["main", "a"],
     translateX: [10, 0],
     opacity: [0, 1],
     duration: 500,
