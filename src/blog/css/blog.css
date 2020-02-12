@@ -9,7 +9,7 @@ body {
   font-family: "Nanum Myeongjo", serif;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
   #blog-container {
     width: 60rem;
     background: white;
