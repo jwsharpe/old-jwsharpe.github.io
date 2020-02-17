@@ -1,5 +1,10 @@
 const posts = [
   {
+    title: "CSS: Modern UI with clip-path",
+    description: "The FUTURE of implementing UI designs with CSS",
+    date: "February 2020"
+  },
+  {
     title: "Javascript: var, let and the JS interpreter",
     description: "Why do we have two statements for the same thing?",
     date: "February 2020"
