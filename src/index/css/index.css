@@ -45,6 +45,18 @@ a {
   text-decoration: none;
 }
 
+#watermark {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font: "Lora";
+  font-size: 17rem;
+  color: rgba(255, 255, 255, 0.05);
+}
+
 @media (min-width: 800px) {
   body {
     display: grid;
@@ -84,6 +96,10 @@ a {
   }
   a {
     margin-bottom: 0rem;
+  }
+
+  #watermark {
+    display: none;
   }
 }
 
