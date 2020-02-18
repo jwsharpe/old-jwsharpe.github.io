@@ -5,7 +5,8 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  overflow-y: hidden;
+
+  overflow: hidden;
   color: white;
   background: #0a0c2c;
 }
@@ -53,6 +54,7 @@ a {
   align-items: center;
   position: absolute;
   font: "Lora";
+  overflow: hidden;
   font-size: 17rem;
   color: rgba(255, 255, 255, 0.05);
 }
