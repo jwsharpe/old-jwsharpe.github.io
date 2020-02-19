@@ -4,3 +4,6 @@
 [submodule "untitled-loop-game"]
 	path = untitled-loop-game
 	url = https://github.com/jwsharpe/untitled-loop-game-frontend
+[submodule "neumorphism-and-me"]
+	path = neumorphism-and-me
+	url = https://github.com/jwsharpe/neumorphism-and-me.git
